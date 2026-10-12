@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**").allowedOriginPatterns(frontendOrigin, "http://localhost:*", "https://*.replit.dev")
+        registry.addMapping("/api/**").allowedOriginPatterns(frontendOrigin, "http://localhost:*", "https://*.replit.dev", "https://*.onrender.com", "https://*.netlify.app")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*").allowCredentials(true).maxAge(3600);
     }
