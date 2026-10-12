@@ -1,0 +1,18 @@
+# Root level gitignore
+
+# Backend
+backend/target/
+backend/*.class
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.production
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.DS_Store

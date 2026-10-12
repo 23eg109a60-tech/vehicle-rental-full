@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: vehicle-rental-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/auth/session
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vehicle-rental-db
+          property: connectionString
+      - key: DATABASE_PLATFORM
+        value: postgresql
+      - key: JPA_DIALECT
+        value: org.hibernate.dialect.PostgreSQLDialect
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: FRONTEND_ORIGIN
+        value: https://vehicle-rental-frontend-jrim.onrender.com
+      - key: SEED_DEMO_DATA
+        value: always
+
+databases:
+  - name: vehicle-rental-db
+    plan: free
+    databaseName: vehicle_rental
